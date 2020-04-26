@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>TaTeTi</title>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">TA-TE-TI</h1>
+    <section id="jugadores">
+        <div class="container">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="usr">Nombre del Jugador 1:</label>
+                    <input type="text" class="form-control" id="nombreJugador1" placeholder="Nombre jugador 1" required>
+                    <strong style="color: red; padding-left: 200px;">Ficha ROJA</strong>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label for="usr">Nombre del Jugador 2:</label>
+                    <input type="text" class="form-control" id="nombreJugador2" placeholder="Nombre jugador 2" required>
+                    <strong style="padding-left: 200px;">Ficha NEGRA</strong>
+                </div>
+            </div>
+            <section style="text-align: center;" id="empezarJuego">
+                <button onclick="comenzar()" class="btn btn-primary my-2">Comenzar Juego</button>
+            </section>
+            <section id="alert">
+                <strong>Falta completar el nombre de algún jugador</strong>
+            </section>
+        </div>
+    </section>
+
+    <div id="juegoCompleto" class="centrado">
+        <div style="width: 400px; padding: 5px; float: left;">
+            <table id="Resultado">
+                <thead class="borde">
+                    <tr class="borde">
+                        <th scope="col" style="text-align: right; background-color: aquamarine;">MARCADOR</th>
+                        <th scope="col" style="text-align: center; background-color: aquamarine;"></th>
+                    </tr>
+                </thead>
+                <tbody class="borde">
+                    <tr class="borde">
+                        <th id="Jugador1"></th>
+                        <td id="Ganados1" class="borde" style="text-align: center;"></td>
+                    </tr>
+                    <tr class="borde">
+                        <th id="Jugador2"></th>
+                        <td id="Ganados2" class="borde" style="text-align: center;"></td>
+                    </tr>
+                    <tr class="borde">
+                        <th>Empates</th>
+                        <td id="Empatados" class="borde" style="text-align: center;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <section style="text-align: center;">
+                <button onclick=reiniciar() class="btn btn-primary my-2 ">Reiniciar juego</button>
+            </section>
+        </div>
+
+        <div style="float: left; padding-left: 100px; ">
+            <table id="tablerojuego ">
+                <tbody>
+                    <tr>
+                        <td class="casilla" id="1"></td>
+                        <td class="casilla" id="2"></td>
+                        <td class="casilla" id="3"></td>
+                    </tr>
+                    <tr>
+                        <td class="casilla" id="4"></td>
+                        <td class="casilla" id="5"></td>
+                        <td class="casilla" id="6"></td>
+                    </tr>
+                    <tr>
+                        <td class="casilla" id="7"></td>
+                        <td class="casilla" id="8"></td>
+                        <td class="casilla" id="9"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="lead text-muted " style="text-align: center; padding-top: 15px;" id="quienJuega"></p>
+            <section style="text-align: center; ">
+                <button id="btnVolverAJugar " class="btn btn-primary my-2 " onclick="revancha() ">Jugar Revancha</button>
+            </section>
+        </div>
+    </div>
+
+    <footer style="padding-top: 20px;">
+        <div style="text-align: center; ">
+            <p>Alvarez, Joaquín - Programación Avanzada 2020</p>
+        </div>
+    </footer>
+    <script type="text/javascript " src="tateti.js "></script>
+</body>
+
+</html>

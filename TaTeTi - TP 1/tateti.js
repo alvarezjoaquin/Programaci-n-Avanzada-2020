@@ -4,6 +4,7 @@ var nameplayer1 = document.getElementById("nombreJugador1");
 var nameplayer2 = document.getElementById("nombreJugador2");
 var quienJuega = document.getElementById("quienJuega");
 var botonComenzar = document.getElementById("empezarJuego");
+var botonRevancha = document.getElementById("btnrevancha");
 var casilla = document.querySelectorAll('.casilla');
 var juegosGanadosJugador1 = 0;
 var juegosGanadosJugador2 = 0;
@@ -50,6 +51,7 @@ function comenzar() {
         Empatados.innerHTML = juegosEmpatados;
 
         document.getElementById('juegoCompleto').style.display = "block";
+        document.getElementById("btnrevancha").style.display = "none";
         document.getElementById("alert").style.display = "none";
         quienJuega.innerHTML = "Juega el jugador: " + nameplayer1.value; // muestra quien juega
         botonComenzar.style.display = "none";
@@ -67,7 +69,8 @@ function revancha() {
         m.innerHTML = "";
         m.style.backgroundColor = "#ffffff";
     });
-    quienJuega.innerHTML = "Juega el jugador: " + nameplayer1.value; // muestra quien juega
+    document.getElementById("btnrevancha").style.display = "none";
+    quienJuega.innerHTML = "Juega el jugador: " + nameplayer1.value; // muestra quien juega    
 
 }
 
@@ -122,11 +125,14 @@ casilla.forEach(item => {
 
                 if (turno === 9) {
                     debugger
-                    hayGanador = false;
-                    terminoJuego = true;
-                    quienJuega.innerHTML = "Es un Empate!";
-                    juegosEmpatados++;
-                    Empatados.innerHTML = juegosEmpatados;
+                    comprobarGanador();
+                    if (!hayGanador) {
+                        terminoJuego = true;
+                        quienJuega.innerHTML = "Es un Empate!";
+                        juegosEmpatados++;
+                        Empatados.innerHTML = juegosEmpatados;
+                        document.getElementById("btnrevancha").style.display = "block";
+                    }
                 }
 
                 if (turno > 2 && !terminoJuego) {
@@ -149,6 +155,7 @@ casilla.forEach(item => {
                             juegosGanadosJugador1++;
                             Ganados1.innerHTML = juegosGanadosJugador1;
                         }
+                        document.getElementById("btnrevancha").style.display = "block";
 
                     }
 
